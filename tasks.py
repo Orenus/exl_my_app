@@ -2,16 +2,21 @@ from invoke import task
 
 
 @task
-def install(c):
+def install(runner):
     """
     this will pip install requirements.txt
     """
-    c.run('pip install -r requirements.txt')
+    runner.run('pip install -r requirements.txt')
 
 
 @task
-def upgrade(c):
+def upgrade(runner):
     """
     this will pip install and upgrade required packages from requirements.txt
     """
-    c.run('pip install -r requirements.txt --upgrade')
+    runner.run('pip install -r requirements.txt --upgrade')
+
+
+@task
+def clean(runner):
+    runner.run("rm -rf *.log*")
