@@ -1,0 +1,21 @@
+
+version: '3'
+services:
+  elk: 
+    image: sebp/elk
+    ports: 
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"
+  app:
+    build:
+      context: .
+      args:
+        - NEXUS_HOST=nexus
+    volumes:
+      - ./logs:/var/log
+    entrypoint: python /src/my_app.py -t ${TIMES}
+    depends_on:
+      - elk
+# volumes:
+  # log-volume:

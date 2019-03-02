@@ -8,15 +8,26 @@ from exl_base import ExlSecrets
 import traceback
 import sys
 
+from pkg_resources import Requirement, resource_filename
+
 
 app = None
 
 
 def app_init():
-
   # define command line arguments for this app
     ExlCmdlineArgs.instance().add_arg(
         '--times', 'number of times to print me...', '-t', int, 0, required=True)
+
+    ExlCmdlineArgs.instance().add_group_arg(
+        'person',
+        '--name', 'name of person in one word', '-n', required=True
+    )
+
+    ExlCmdlineArgs.instance().add_group_arg(
+        'person',
+        '--job', 'job of person (default: generic)', '-j', default='Generic'
+    )
 
     # will exit process if failes - look for logger messages
     app = ExlBaseApp(
@@ -46,14 +57,21 @@ def main():
 
         logger.info("test user is: {}".format(test_user))
 
-        secret = ExlSecrets.instance().get('secret/exl')
-        logger.critical("my best kept secret is: {} : {}".format(secret['db']['user'],
-                                                                 secret['db']['pass']))
+        # secret = ExlSecrets.instance().get('secret/exl')
+        # logger.critical("my best kept secret is: {} : {}".format(secret['db']['user'],
+        #                                                          secret['db']['pass']))
 
         times = ExlCmdlineArgs.instance().get('times', 0)
         logger.info("going to print me {} times".format(times))
         for i in range(times):
             logger.info("me")
+
+        personName = ExlCmdlineArgs.instance().get('name', None)
+        logger.info("got person: {}".format(personName))
+
+        conf_file_path = resource_filename(
+            Requirement.parse("exl_base"), "config/global.properties")
+        logger.info("config file for exl_base: {}".format(conf_file_path))
 
     except Exception as e:
         print(
