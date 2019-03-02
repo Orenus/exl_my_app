@@ -69,10 +69,6 @@ def main():
         personName = ExlCmdlineArgs.instance().get('name', None)
         logger.info("got person: {}".format(personName))
 
-        conf_file_path = resource_filename(
-            Requirement.parse("exl_base"), "config/global.properties")
-        logger.info("config file for exl_base: {}".format(conf_file_path))
-
     except Exception as e:
         print(
             "Failed. ex: " + e.message)
