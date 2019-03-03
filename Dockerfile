@@ -1,4 +1,4 @@
-FROM exl-python-builder:latest
+FROM exl_python_builder:latest
 
 RUN mkdir /src
 ADD . /src
