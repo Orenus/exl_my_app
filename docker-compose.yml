@@ -11,7 +11,7 @@ services:
     build:
       context: .
       args:
-        - NEXUS_HOST=nexus
+        - ARTIFACTORY_HOST=poc-nexus01.dc99
     volumes:
       - ./logs:/var/log
     entrypoint: python /src/my_app.py -t ${TIMES}
