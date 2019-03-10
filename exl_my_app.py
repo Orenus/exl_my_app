@@ -10,9 +10,7 @@ import sys
 
 from pkg_resources import Requirement, resource_filename
 
-
 app = None
-
 
 def app_init():
   # define command line arguments for this app
