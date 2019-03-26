@@ -20,3 +20,12 @@ def upgrade(runner):
 @task
 def clean(runner):
     runner.run("rm -rf *.log*")
+
+
+@task
+def build_image(runner):
+  runner.run("docker build . -t exl_my_app --rm")
+
+@task(build_image)
+def run_image(runner):
+  runner.run("docker run -i exl_my_app")

@@ -4,6 +4,7 @@ from exl_base import ExlInitializer
 from exl_base import ExlBaseApp
 from exl_base import ExlCmdlineArgs
 from exl_base import ExlSecrets
+from exl_helpers import ExlSshUtils
 
 import traceback
 import sys
@@ -66,6 +67,9 @@ def main():
 
         personName = ExlCmdlineArgs.instance().get('name', None)
         logger.info("got person: {}".format(personName))
+
+        ssh = ExlSshUtils("ssh-gr2.vpnjantit.com", 'kuku-vpnjantit.com', 'miaomiao123')
+        ssh.execute_command(['ls'])
 
     except Exception as e:
         print(
