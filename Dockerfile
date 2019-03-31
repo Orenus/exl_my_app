@@ -16,4 +16,4 @@ RUN pip install -r requirements.txt --upgrade
 ADD ./config/global.properties /etc/
 ADD . /src
 
-ENTRYPOINT "python exl_my_app.py"
+ENTRYPOINT [ "python" , "./exl_my_app.py" ]
