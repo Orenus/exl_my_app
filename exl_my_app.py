@@ -44,32 +44,35 @@ def main():
 
         app_init()
 
+        # Logging example
         logger = ExlBaseApp.theApp().logger   # same as ExlLogger.instance()
-
         logger.info("initial info msg")
-        logger.debug("initial debug msg")
-        logger.warning("initial warnning msg")
-        logger.error("initial error msg")
-        logger.critical("initial critical msg")
+        # logger.debug("initial debug msg")
+        # logger.warning("initial warnning msg")
+        # logger.error("initial error msg")
+        # logger.critical("initial critical msg")
 
+        # Configuration Management example
         test_user = ExlConf.instance().get('auth', 'test_user', 'no user!!')
-
         logger.info("test user is: {}".format(test_user))
 
-        # secret = ExlSecrets.instance().get('secret/exl')
-        # logger.critical("my best kept secret is: {} : {}".format(secret['db']['user'],
-        #                                                          secret['db']['pass']))
+        # Secret Management example
+        secret_log_mgmt = ExlSecrets.instance().get('secret/dev/log_mgmt')
+        print("my best kept secret is: {} : {}".format(secret_log_mgmt['elkUsername'], secret_log_mgmt['elkPassword']))
 
+        # Argument Parser example 1
         times = ExlCmdlineArgs.instance().get('times', 0)
         logger.info("going to print me {} times".format(times))
         for i in range(times):
             logger.info("me")
 
-        personName = ExlCmdlineArgs.instance().get('name', None)
-        logger.info("got person: {}".format(personName))
+        # Argument Parser example 2
+        # personName = ExlCmdlineArgs.instance().get('name', None)
+        # logger.info("got person: {}".format(personName))
 
-        ssh = ExlSshUtils("ssh-gr2.vpnjantit.com", 'kuku-vpnjantit.com', 'miaomiao123')
-        ssh.execute_command(['ls'])
+        # SSH usage example
+        # ssh = ExlSshUtils("ssh-gr2.vpnjantit.com", 'kuku-vpnjantit.com', 'miaomiao123')
+        # ssh.execute_command(['ls'])
 
     except Exception as e:
         print(
