@@ -1,5 +1,8 @@
 FROM exl_python_builder:latest
 
+ENV EXL_ENV ${EXL_ENV}
+ENV VAULT_TOKEN ${VAULT_TOKEN}
+
 RUN mkdir /src
 ADD requirements.txt /src/requirements.txt
 
@@ -12,3 +15,5 @@ RUN pip install -r requirements.txt --upgrade
 
 ADD ./config/global.properties /etc/
 ADD . /src
+
+ENTRYPOINT "python exl_my_app.py"

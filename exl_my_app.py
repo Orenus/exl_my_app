@@ -4,7 +4,7 @@ from exl_base import ExlInitializer
 from exl_base import ExlBaseApp
 from exl_base import ExlCmdlineArgs
 from exl_base import ExlSecrets
-from exl_helpers import ExlSshUtils
+from exl_common import ExlSshUtils
 
 import traceback
 import sys
