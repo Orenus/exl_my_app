@@ -1,8 +1,12 @@
 [auth]
 test_user = override@kuku.com
 miao = 6,7,8
-use_vault = True
+use_vault = False
 
 [log]
 logToConsole = True
-logToELK = True
+logToELK = False
+
+[test]
+key2 = app
+key3 = app

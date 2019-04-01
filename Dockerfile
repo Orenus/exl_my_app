@@ -13,7 +13,6 @@ ENV EXL_TRACE 1
 
 RUN pip install -r requirements.txt --upgrade
 
-ADD ./config/global.properties /etc/
 ADD . /src
 
 ENTRYPOINT [ "python" , "./exl_my_app.py" ]
