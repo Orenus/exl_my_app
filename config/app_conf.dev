@@ -1,3 +1,8 @@
+######
+# THIS is the applications configuration file for the DEVELOPMENT environment.
+# Modification are to be made only pre commit otherwise, use the exp_conf.dev instead.
+######
+
 [auth]
 test_user = override@kuku.com
 miao = 6,7,8
