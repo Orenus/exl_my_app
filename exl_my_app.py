@@ -8,6 +8,7 @@ from exl_common import ExlSshUtils
 
 import traceback
 import sys
+import os
 
 from pkg_resources import Requirement, resource_filename
 
@@ -52,6 +53,13 @@ def main():
         # logger.error("initial error msg")
         # logger.critical("initial critical msg")
 
+        #configuration management that is environment aware:
+        conf_val_1 = ExlConf.instance().get('test', 'key1')
+        conf_val_2 = ExlConf.instance().get('test', 'key2')
+        conf_val_3 = ExlConf.instance().get('test', 'key3')
+
+        logger.debug("env is {} and val1 => [{}] val2 => [{}] val3 => [{}]".format(os.environ['EXL_ENV'], conf_val_1, conf_val_2, conf_val_3))
+
         # Configuration Management example
         test_user = ExlConf.instance().get('auth', 'test_user', 'no user!!')
         logger.info("test user is: {}".format(test_user))
@@ -76,7 +84,7 @@ def main():
 
     except Exception as e:
         print(
-            "Failed. ex: " + e.message)
+            "Failed. ex: {}".format(e))
         traceback.print_exc(file=sys.stdout)
 
 
