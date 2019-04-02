@@ -2,3 +2,4 @@
 .DS_Store
 *.log
 *.idea
+config/exp_conf.*
