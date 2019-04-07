@@ -10,7 +10,7 @@ use_vault = True
 
 [log]
 log_to_console = True
-log_to_elastic = False
+log_to_elastic = True
 
 [test]
 key2 = app
