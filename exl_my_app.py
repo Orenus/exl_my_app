@@ -49,7 +49,7 @@ def main():
         logger = ExlBaseApp.theApp().logger   # same as ExlLogger.instance()
         logger.info("initial info msg")
         # logger.debug("initial debug msg")
-        # logger.warning("initial warnning msg")
+        # logger.warning("initial warning msg")
         # logger.error("initial error msg")
         # logger.critical("initial critical msg")
 
@@ -66,7 +66,7 @@ def main():
 
         # Secret Management example
         secret_log_mgmt = ExlSecrets.instance().get('secret/dev/log_mgmt')
-        print("my best kept secret is: {} : {}".format(secret_log_mgmt['elkUsername'], secret_log_mgmt['elkPassword']))
+        print("my best kept secret is: {} : {}".format(secret_log_mgmt['elastic_username'], secret_log_mgmt['elastic_password']))
 
         # Argument Parser example 1
         times = ExlCmdlineArgs.instance().get('times', 0)
