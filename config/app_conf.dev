@@ -4,14 +4,14 @@
 ###########################################################################################
 
 [auth]
-test_user = override@kuku.com
-miao = 6,7,8
-use_vault = True
+test_user=override@kuku.com
+miao=6,7,8
+use_vault=True
 
 [log]
-log_to_console = True
-log_to_elastic = True
+log_to_console=True
+log_to_elastic=True
 
 [test]
-key2 = app
-key3 = app
+key2=app
+key3=app
