@@ -6,7 +6,7 @@
 [auth]
 test_user = override@kuku.com
 miao = 6,7,8
-use_vault = False
+use_vault = True
 
 [log]
 logToConsole = True
