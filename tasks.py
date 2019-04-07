@@ -31,12 +31,12 @@ def run_image(runner):
   runner.run("docker run -i exl_my_app")
 
 @task
-def run_debug(runner, args=None):
-  runner.run('docker run -i -v "$(pwd)/../exl_base":/exl_base -e PYTHONPATH=":/exl_base/" exl_my_app {}'.format(args))
+def run_debug(runner, env, args=None):
+  runner.run('docker run -i -v "$(pwd)/../exl_base":/src/exl_base -e EXL_ENV="{}" exl_my_app {}'.format(env, args))
 
 @task
 def run_dev(runner, env, args=None):
-  runner.run('docker run -i -e EXL_ENV={} -v "$(pwd)/.":/src exl_my_app {}'.format(env, args))
+  runner.run('docker run -i -e EXL_ENV={} -v "$(pwd)":/src exl_my_app {}'.format(env, args))
 
 @task
 def run(runner, env, args=None):
