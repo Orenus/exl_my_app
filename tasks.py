@@ -29,3 +29,11 @@ def build_image(runner):
 @task(build_image)
 def run_image(runner):
   runner.run("docker run -i exl_my_app")
+
+@task
+def run_debug(runner, args=None):
+  runner.run('docker run -i -v "$(pwd)/../exl_base":/exl_base -e PYTHONPATH=":/exl_base/" exl_my_app {}'.format(args))
+
+@task
+def run(runner, args=None):
+  runner.run('docker run -i exl_my_app {}'.format(args))
