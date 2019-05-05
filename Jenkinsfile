@@ -9,7 +9,7 @@ node {
         /* Let's clone the repository into the JENKINS(!) workspace 
         */
 
-        sh 'git checkout Dockerfile'
+        checkout scm
     }
 
     stage('Build image') {
@@ -38,7 +38,7 @@ node {
          * Second, the 'latest' tag.
          */
         docker.withRegistry(dockerRegistryUrl, dockerRegistryCredentialsId) {
-            image.push("${env.BUILD_NUMBER}")
+            image.push()
             image.push("latest")
         }
     }
