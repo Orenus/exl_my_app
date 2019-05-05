@@ -17,7 +17,7 @@ node {
          * docker build on the commandline 
          */
 
-        docker.withRegistry(dockerRegistryUrl, dockerRegistryCredentialId) {
+        docker.withRegistry(dockerRegistryUrl, dockerRegistryCredentialsId) {
             img = docker.build("exl_my_app:${env.BUILD_ID}", ". --build-arg GIT_TOKEN=${env.GIT_TOKEN} -f ./Dockerfile --rm --no-cache")
          }
     }
