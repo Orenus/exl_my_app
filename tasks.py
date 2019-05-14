@@ -1,5 +1,12 @@
-from invoke import task
+__author__ = "CSA"
+__maintainer__ = "CSA"
+__copyright__ = "Copyright 2019, Ex Libris"
+__credits__ = ["CSA"]
+__version__ = "0.0.1"
+__email__ = "elie.ifrah@exlibrisgroup.com"
+__status__ = "Development"
 
+from invoke import task
 
 @task
 def install(runner):
@@ -8,7 +15,6 @@ def install(runner):
     """
     runner.run('pip install -r requirements.txt')
 
-
 @task
 def upgrade(runner):
     """
@@ -16,11 +22,9 @@ def upgrade(runner):
     """
     runner.run('pip install -r requirements.txt --upgrade')
 
-
 @task
 def clean(runner):
     runner.run("rm -rf *.log*")
-
 
 @task
 def build_image(runner):

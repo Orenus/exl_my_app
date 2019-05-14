@@ -1,3 +1,10 @@
+##############################################################################
+# Script Name: Dockerfile
+# Author: CSA
+# Description: run exl_my_app in docker container
+# Company:     Exlibris
+##############################################################################
+
 FROM poc-nexus01.dc99:8123/exl_python_builder:latest
 
 ENV EXL_ENV ${EXL_ENV}
