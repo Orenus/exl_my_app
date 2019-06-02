@@ -14,7 +14,7 @@ services:
         - ARTIFACTORY_HOST=poc-nexus01.dc99
     volumes:
       - ./logs:/var/log
-    entrypoint: python /src/exl_my_app.py -t ${TIMES}
+    entrypoint: python /src/exl_main.py -t ${TIMES}
     depends_on:
       - elk
 # volumes:

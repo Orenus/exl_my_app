@@ -6,11 +6,11 @@
 [auth]
 test_user=override@kuku.com
 miao=6,7,8
-use_vault=True
+use_vault=False
 
 [log]
 log_to_console=True
-log_to_elastic=True
+log_to_elastic=False
 
 [test]
 key2=app

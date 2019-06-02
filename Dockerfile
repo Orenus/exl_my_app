@@ -22,4 +22,4 @@ RUN pip install -r requirements.txt --upgrade
 
 ADD . /src
 
-ENTRYPOINT [ "python" , "exl_my_app.py" ]
+ENTRYPOINT [ "python" , "exl_main.py" ]
