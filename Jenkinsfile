@@ -2,7 +2,7 @@
 node {
     def image
 
-    dockerRegistryUrl = "http://poc-nexus01.dc99:8123/repository/exl_docker"
+    def dockerRegistryUrl = "${env.DOCKER_REGISTRY_URL}"
     dockerRegistryCredentialsId = 'exl-docker-hub-credentials'
 
     stage('Clone repository') {
