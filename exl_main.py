@@ -8,7 +8,6 @@ __status__ = "Development"
 
 from exl_base import ExlConf
 from exl_base import ExlLogger
-from exl_base import ExlInitializer
 from exl_base import ExlBaseApp
 from exl_base import ExlCmdlineArgs
 from exl_base import ExlSecrets
@@ -17,8 +16,6 @@ from exl_common import ExlSshUtils
 import traceback
 import sys
 import os
-
-from pkg_resources import Requirement, resource_filename
 
 app = None
 
@@ -52,7 +49,7 @@ def main():
         app_init()
 
         # Logging example
-        logger = ExlBaseApp.theApp().logger  # same as ExlLogger.instance()
+        logger = ExlLogger.instance()
         logger.info("initial info msg")
         logger.debug("initial debug msg")
         logger.warning("initial warning msg")
@@ -93,8 +90,8 @@ def main():
         logger.info("got person: {}".format(personName))
 
         # SSH usage example
-        # ssh = ExlSshUtils("ssh-gr2.vpnjantit.com", 'kuku-vpnjantit.com', 'miaomiao123')
-        # ssh.execute_command(['ls'])
+        ssh = ExlSshUtils("ssh-gr2.vpnjantit.com", "kuku-vpnjantit.com", "miaomiao123")
+        ssh.execute_command(["ls"])
 
     except Exception as e:
         print("Failed. ex: {}".format(e))
@@ -103,4 +100,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
